@@ -1,0 +1,240 @@
+.category-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.page-header {
+  margin-bottom: var(--space-lg);
+}
+
+.page-header-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.page-header-icon {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+}
+
+.page-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-xs);
+  letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+  font-size: var(--font-size-base);
+  color: var(--text-muted);
+  margin: 0;
+  font-weight: 500;
+}
+
+.error-alert {
+  background: linear-gradient(135deg, #fef2f2 0%, #fef2f2 100%) !important;
+  border-left: 4px solid var(--danger) !important;
+}
+
+.error-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.error-icon {
+  font-size: 1.2rem;
+  color: var(--danger);
+}
+
+.error-message {
+  flex: 1;
+  color: var(--danger);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+.error-close {
+  color: var(--danger) !important;
+  padding: var(--space-xs) !important;
+}
+
+.form-section {
+  background: var(--bg-card) !important;
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.form-icon {
+  font-size: 1.5rem;
+}
+
+.form-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.category-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: var(--space-lg);
+  align-items: end;
+}
+
+.form-actions {
+  min-width: 150px;
+}
+
+/* Table Styles */
+.categories-table {
+  background: var(--bg-card) !important;
+  overflow: hidden;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.category-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.category-table thead th {
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: var(--space-lg);
+  text-align: left;
+  border-bottom: 2px solid var(--border-mid);
+}
+
+.category-table tbody td {
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: middle;
+}
+
+.category-table tbody tr:hover {
+  background: var(--bg-subtle);
+}
+
+.category-name {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.category-badge {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+}
+
+.category-description {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.delete-button {
+  font-size: var(--font-size-sm) !important;
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--space-2xl) !important;
+}
+
+.empty-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.empty-icon {
+  font-size: 3rem;
+  opacity: 0.5;
+}
+
+.empty-content p {
+  font-size: var(--font-size-lg);
+  color: var(--text-muted);
+  margin: 0;
+  font-weight: 500;
+}
+
+.empty-content small {
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .category-container {
+    padding: var(--space-md);
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .form-actions {
+    min-width: auto;
+  }
+
+  .page-header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .page-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .table-responsive {
+    font-size: var(--font-size-sm);
+  }
+
+  .category-table thead th,
+  .category-table tbody td {
+    padding: var(--space-md);
+  }
+}

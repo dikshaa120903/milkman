@@ -1,0 +1,368 @@
+/* ===========================
+   Home Page — Premium Glassmorphism Light
+   =========================== */
+
+.home-page {
+    min-height: 100vh;
+    /* Soft, bright overlay over the background image to ensure text readability without going dark */
+    background: 
+        linear-gradient(160deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.85) 60%, rgba(248, 250, 252, 0.9) 100%),
+        url('/homeimg.webp') center/cover no-repeat fixed;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 60px 20px 40px;
+    z-index: 1;
+}
+
+/* Decorative glowing orbs to enhance the glassmorphism effect */
+.home-page::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(34, 197, 94, 0.15) 0%, transparent 70%);
+    top: -150px; left: -150px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+    filter: blur(40px);
+}
+.home-page::after {
+    content: '';
+    position: absolute;
+    width: 450px; height: 450px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+    bottom: -100px; right: -50px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+    filter: blur(40px);
+}
+
+/* Base Glassmorphism utility */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+/* ---- Hero Content ---- */
+.home-content {
+    padding: 0 20px;
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.home-hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(22, 163, 74, 0.1);
+    color: var(--primary-dark);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(22, 163, 74, 0.2);
+    margin-bottom: 20px;
+    backdrop-filter: blur(4px);
+}
+
+.home-title {
+    font-size: 4.2rem;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: var(--text-primary);
+    line-height: 1.1;
+    margin-bottom: 18px;
+    text-shadow: 0 2px 10px rgba(255,255,255,0.8);
+}
+
+.home-title-accent {
+    background: linear-gradient(135deg, var(--primary) 0%, #059669 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.home-subtitle {
+    font-size: 1.25rem;
+    color: #475569; /* var(--text-secondary) */
+    margin-bottom: 36px;
+    line-height: 1.7;
+    max-width: 500px;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+/* CTA Buttons */
+.cta-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.cta-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: #fff !important;
+    border: none;
+    border-radius: var(--radius-full);
+    padding: 16px 32px;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 8px 24px rgba(22,163,74,0.3);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex; align-items: center; gap: 8px;
+    position: relative;
+    overflow: hidden;
+}
+.cta-primary::before {
+    content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+.cta-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(22,163,74,0.4);
+}
+.cta-primary:hover::before { left: 100%; }
+
+.cta-secondary {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    color: var(--text-primary) !important;
+    border: 1px solid rgba(22, 163, 74, 0.3);
+    border-radius: var(--radius-full);
+    padding: 16px 32px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex; align-items: center; gap: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+}
+.cta-secondary:hover {
+    background: #fff;
+    border-color: var(--primary);
+    color: var(--primary) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+/* Feature cards using glassmorphism */
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.feature-item {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: var(--radius-lg);
+    padding: 24px 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.02), inset 0 0 0 1px rgba(255,255,255,0.3);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.feature-item:hover {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.05);
+    transform: translateY(-4px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.9);
+}
+.feature-item h5 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+.feature-item p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ---- Login Section (right panel) ---- */
+.login-section {
+    padding: 20px;
+    animation: slideUp 0.8s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: var(--radius-xl);
+    padding: 40px 32px;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle corner highlight for glass container */
+.login-container::before {
+    content: ''; position: absolute; top: -30%; left: -30%; width: 60%; height: 60%;
+    background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, transparent 60%);
+    pointer-events: none; opacity: 0.6;
+}
+
+.login-title {
+    text-align: center;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    font-weight: 800;
+    font-size: 1.8rem;
+    letter-spacing: -0.04em;
+    position: relative;
+    z-index: 2;
+}
+.login-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 2;
+}
+
+.login-options {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 2;
+}
+
+.login-card {
+    display: block;
+    padding: 20px 24px;
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.5);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+.login-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0; width: 4px;
+    border-radius: 4px 0 0 4px;
+    transition: width 0.3s ease;
+    opacity: 0.8;
+}
+.login-card.customer-login::before { background: var(--primary); }
+.login-card.staff-login::before    { background: #8b5cf6; }
+
+.login-card:hover {
+    transform: translateX(4px);
+    background: rgba(255, 255, 255, 0.9);
+    border-color: #fff;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    text-decoration: none;
+}
+.login-card:hover::before { width: 6px; }
+
+.login-card-inner {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+.login-icon {
+    font-size: 2.2rem;
+    width: 56px; height: 56px;
+    border-radius: var(--radius-md);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+.login-card h4 {
+    color: var(--text-primary);
+    margin: 0 0 4px;
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+.login-card p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin: 0;
+}
+.login-card-arrow {
+    margin-left: auto;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+.login-card:hover .login-card-arrow { transform: translateX(6px); color: var(--primary); }
+.login-card.staff-login:hover .login-card-arrow { color: #8b5cf6; }
+
+.register-section {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+.register-section p {
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+    font-size: 0.9rem;
+}
+.btn-register {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--text-primary) !important;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+.btn-register:hover {
+    background: #fff;
+    border-color: var(--primary);
+    color: var(--primary-dark) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 992px) {
+    .home-title { font-size: 3.2rem; }
+    .features { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+    .home-page { padding: 40px 16px; background-attachment: scroll; }
+    .home-title { font-size: 2.6rem; }
+    .home-subtitle { font-size: 1.05rem; }
+    .features { grid-template-columns: 1fr; gap: 12px; }
+    .login-container { padding: 32px 24px; }
+    .cta-buttons { flex-direction: column; }
+    .cta-primary, .cta-secondary { justify-content: center; width: 100%; }
+}
+
+/* Animations */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}

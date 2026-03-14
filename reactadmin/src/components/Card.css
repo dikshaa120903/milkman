@@ -1,0 +1,43 @@
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shadow variants */
+.card-shadow-xs { box-shadow: var(--shadow-xs); }
+.card-shadow-sm { box-shadow: var(--shadow-sm); }
+.card-shadow-md { box-shadow: var(--shadow-md); }
+.card-shadow-lg { box-shadow: var(--shadow-lg); }
+.card-shadow-xl { box-shadow: var(--shadow-xl); }
+
+/* Border radius variants */
+.card-radius-sm { border-radius: var(--radius-sm); }
+.card-radius-md { border-radius: var(--radius-md); }
+.card-radius-lg { border-radius: var(--radius-lg); }
+.card-radius-xl { border-radius: var(--radius-xl); }
+.card-radius-full { border-radius: var(--radius-full); }
+
+/* Padding variants */
+.card-padding-sm { padding: var(--space-sm); }
+.card-padding-md { padding: var(--space-md); }
+.card-padding-lg { padding: var(--space-lg); }
+.card-padding-xl { padding: var(--space-xl); }
+
+/* Hover effects */
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-clickable:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Brand shadow variant */
+.card-shadow-brand {
+  box-shadow: var(--shadow-brand);
+}
