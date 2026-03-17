@@ -24,7 +24,10 @@ class LoginView(APIView):
         if not email or not password:
             return Response({"detail": "Email and password required"}, status=status.HTTP_400_BAD_REQUEST)
         try:
-            cust = Customer.objects.get(email=email, password=password)
+            # Case-insensitive email lookup for easier login
+            cust = Customer.objects.filter(email__iexact=email, password=password).first()
+            if not cust:
+                raise Customer.DoesNotExist
         except Customer.DoesNotExist:
             return Response({"detail": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
         token = create_token(cust)

@@ -24,7 +24,11 @@ class LoginView(APIView):
         if not email or not password:
             return Response({"detail": "Email and password required"}, status=status.HTTP_400_BAD_REQUEST)
         try:
-            staff = Staff.objects.get(email=email, password=password)
+            # Check for exact match with email and password
+            # Note: In a production app, passwords should be hashed using make_password/check_password
+            staff = Staff.objects.filter(email__iexact=email, password=password).first()
+            if not staff:
+                raise Staff.DoesNotExist
         except Staff.DoesNotExist:
             return Response({"detail": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
         token = create_token(staff)
